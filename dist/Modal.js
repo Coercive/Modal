@@ -20,8 +20,8 @@
         }
 
         return '' +
-            '<div class="modal fade ' + Modal.params.class + '"' + stack + ' tabindex="-1" role="dialog" >' +
-                '<div class="modal-dialog ' + Modal.params.dialogClass + '" role="document">' +
+            '<div class="modal fade ' + (Modal.params.class || '') + '"' + stack + ' tabindex="-1" role="dialog" >' +
+                '<div class="modal-dialog ' + (Modal.params.dialogClass || '') + '" role="document">' +
                     '<div class="modal-content">' +
                         buildHeader(Modal) +
                         buildBody(Modal) +
@@ -45,7 +45,7 @@
         }
 
         if(Modal.params.title) {
-            header += '<h5 class="modal-title" id="' + Modal.params.label + '">'+ Modal.params.title +'</h5>';
+            header += '<h5 class="modal-title" id="' + (Modal.params.label || '') + '">'+ Modal.params.title +'</h5>';
         }
 
         if(Modal.params.topCancel && Modal.params.bootstrap > 3) {
@@ -81,13 +81,13 @@
         if (Modal.params.cancel) {
             if(Modal.params.bootstrap === 3) {
                 footer +=
-                    '<button class="btn btn-default '+ Modal.params.cancelClass +' modalBtnCancel" type="button" data-dismiss="modal">' +
+                    '<button class="btn btn-default '+ (Modal.params.cancelClass || '') +' modalBtnCancel" type="button" data-dismiss="modal">' +
                         Modal.params.cancel +
                     '</button>';
             }
             else if(Modal.params.bootstrap > 3) {
                 footer +=
-                    '<button class="btn btn-default '+ Modal.params.cancelClass +' modalBtnCancel" type="button" data-bs-dismiss="modal">' +
+                    '<button class="btn btn-default '+ (Modal.params.cancelClass || '') +' modalBtnCancel" type="button" data-bs-dismiss="modal">' +
                         Modal.params.cancel +
                     '</button>';
             }
@@ -95,7 +95,7 @@
 
         if (Modal.params.confirm) {
             footer +=
-                '<button class="btn btn-primary '+ Modal.params.confirmClass +' modalBtnConfirm" type="button">' +
+                '<button class="btn btn-primary '+ (Modal.params.confirmClass || '') +' modalBtnConfirm" type="button">' +
                     Modal.params.confirm +
                 '</button>';
         }
